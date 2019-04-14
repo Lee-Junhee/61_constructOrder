@@ -17,11 +17,15 @@ public class OrderedList_inArraySlots implements OrderedList {
    */
   public OrderedList_inArraySlots(ArrayList<Integer> unordered) {
     this(); // improve, for optional extra education
-
+    int champ, nextLargerAt;
     // test champIndex, for incremental development
-    int nextLargerAt = champIndex(unordered);
-    System.out
-        .println("smallest element is at index " + nextLargerAt + " and has the value " + unordered.get(nextLargerAt));
+    while (list_iAS.size() < unordered.size()) {
+      nextLargerAt = champIndex(unordered);
+      System.out.println("smallest element is at index " + nextLargerAt + " and has the value "
+          + (champ = unordered.get(nextLargerAt)));
+      unordered.set(nextLargerAt, null);
+      list_iAS.add(champ);
+    }
   }
 
   /**
